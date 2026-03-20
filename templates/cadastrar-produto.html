@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+
+{% block head %}
+    <title>Mercadinho de Coisinhas - Estoque</title>
+{% endblock %}
+
+{% block body %}
+    <header class="section-header">
+        <div class="section-title">
+            <h2>Editar Produto</h2>
+        </div>
+    </header>
+    <div class="form-produto">
+        <form action="/estoque/cadastrar-produto" method="POST">
+            <div class="campo">
+                <label for="codigo">Código do Produto</label>
+                <input type="number" name="codigo" id="codigo">
+            </div>
+            <div class="campo">
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" id="nome">
+            </div>
+            <div class="campo">
+                <label for="vol_estoque">Vol. em Estoque</label>
+                <input type="text" name="vol_estoque" id="vol_estoque">
+            </div>
+            <div class="campo">
+                <label for="preco_custo">Preço de Custo</label>
+                <input type="number" name="preco_custo" id="preco_custo">
+            </div>
+            <div class="campo">
+                <label for="unidade">Unidade de Medida</label>
+                <select name="unidade_medida" id="unidade" class="select">
+                    <option value="UN" selected>Unidade (un)</option>
+                    <option value="KG">Quilo (kg)</option>
+                </select>
+            </div>
+            <button type="submit">Salvar Alterações</button>
+        </form>
+    </div>
+{% endblock %}

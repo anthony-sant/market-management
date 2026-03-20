@@ -1,0 +1,145 @@
+$layout-width: 1797px;
+@import url('https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap');
+@function calculate-wid($target, $context: $layout-width){
+    @return ($target / $context) * 100%;
+}
+
+.main-header{
+    background-color: #FFF7CD;
+    padding: 10px 10px;
+    div{
+        background-color: #FDC3A1;
+        width: calculate-wid(1769px);
+        height: 60px;
+        border-radius: 28px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;     // Centraliza verticalmente
+        justify-content: center;
+        h1{
+            font-family:'Gochi Hand', cursive;
+            color: #594C4A;
+            text-align: center;
+            margin: 0;
+            font-size: 40px;
+        }
+    }
+}
+
+body{
+    background-color: #FFF7CD;
+}
+
+main{
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;     // Centraliza verticalmente
+    justify-content: center;
+    .main-div{
+        background-color: #FB9B8F;
+        width: calc(1769px);
+        border-radius: 28px;
+        display: flex;
+        align-items: center;     // Centraliza verticalmente
+        justify-content: center;
+        min-height: 800px;
+    }
+}
+
+.index-btn{
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    background-color: #F57799;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;     // Centraliza verticalmente
+    justify-content: center;
+    flex-direction: column;
+    img{
+        width: 150px;
+        height: auto;
+    }
+    figcaption{
+        font-family: 'Gochi Hand', cursive;
+    }
+}
+
+.container-table{
+    background-color: #FFF7CD;
+    border-radius: 28px;
+    width: calculate-wid(1662px);
+    padding: 20px 20px;
+    box-sizing: border-box;
+    table{
+        table-layout: fixed;
+        width: 100%;
+        border-collapse: separete;
+        border-spacing: 0 5px;
+        font-family: 'Gochi Hand', cursive;
+        font-size: large;
+        .top-row{
+            text-align: center;
+        }
+        td{
+            text-align: center;
+            
+        }
+        .bottom-row{
+            background-color: #FDC3A1;
+        }
+        td:first-child{
+            border-radius: 15px 0 0 15px;
+        }
+
+        td:last-child{
+            border-radius: 0 15px 15px 0;
+        }
+    }
+}
+
+.flex-column {
+    flex-direction: column !important;
+}
+
+.section-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 30px 30px;
+    box-sizing: border-box; /* Importante: impede que o padding aumente o tamanho total da div */
+}
+
+.section-header{
+    font-family: 'Gochi Hand', cursive;
+    .action{
+        background-color: #C9FDA1;
+        border-radius: 28px;
+        padding: 10px 10px;
+        .cadastro-btn{
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+}
+
+.container-actions{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    .action-remove, .action-update{
+        background-color: #FB9B8F;
+        border-radius: 28px;
+        padding: 10px 10px;
+        margin: 5px;
+        box-sizing: border-box;
+        
+    }
+    .remove-btn, .update-btn{
+        text-decoration: none;
+        color: inherit;
+    }
+}

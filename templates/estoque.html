@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+
+{% block head %}
+    <title>Mercadinho de Coisinhas - Estoque</title>
+{% endblock %}
+
+{% block body %}
+
+    <script>
+        // Seleciona a main-div e adiciona a classe de coluna apenas nesta página
+        document.querySelector('.main-div').classList.add('flex-column');
+    </script>
+
+<header class="section-header">
+    <div class="section-title">
+        <h2>Estoque</h2>
+    </div>
+    <div class="action">
+        <a href="{{ url_for('cadastrar_produto')}}" class="cadastro-btn">Cadastrar novo produto</a>
+    </div>
+</header>
+<div class="container-table">
+    {% if produtos|length < 1%}
+    <h4>Estoque vazio.</h4>
+    {% else %}
+        <table class="tabela-estoque">
+            <tr class="top-row">
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Preço de Custo</th>
+                <th>Preço de Venda</th>
+                <th>Vol. em Estoque</th>
+                <th>Ações</th>
+            </tr>
+            {%for produto in produtos %}
+                <tr class="bottom-row">
+                    <td>{{ produto.codigo }}</td>
+                    <td>{{ produto.nome }}</td>
+                    <td>R$ {{ "%.2f"|format(produto.preco_custo)|replace('.', ',') }}</td>
+                    <td>R$ {{ "%.2f"|format(produto.get_valor_venda())|replace('.', ',') }}</td>
+                    <td>{{ produto.vol_estoque }} ({{produto.unidade}})</td>
+                    <td>
+                        <div class="container-actions">
+                            <div class="action-remove">
+                                <a href="{{url_for('delete_produto', id = produto.id)}}" class="remove-btn">Remover</a>
+                            </div>
+                            <div class="action-update">
+                                <a href="{{url_for('update_produto', id = produto.id)}}" class="update-btn">Editar</a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table> 
+    {% endif %}
+</div>
+{% endblock %}

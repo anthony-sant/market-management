@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+
+{% block head %}
+    <title>Mercadinho de Coisinhas</title>
+{% endblock %}
+
+{% block body %}
+    <section class="resumo-compra">
+        <div class="item-info">
+            <span>Quantidade de itens:</span>
+            <strong>{{ compra.qtd_itens }}</strong>
+        </div>
+    </section>
+{% endblock %}

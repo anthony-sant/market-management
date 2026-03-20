@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block head %}
+    <title>Mercadinho de Coisinhas - Estoque</title>
+{% endblock %}
+
+{% block body %}
+<header class="section-header">
+    <div class="section-title">
+        <h2>Editar Produto</h2>
+    </div>
+</header>
+<div class="form-produto">
+    <form action="{{ url_for('update_produto', id=produto.id)}}" method="POST">
+        <div class="campo">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome" value="{{produto.nome}}">
+        </div>
+        <div class="campo">
+            <label for="vol_estoque">Vol. em Estoque</label>
+            <input type="text" name="vol_estoque" id="vol_estoque" value="{{produto.vol_estoque}}">
+        </div>
+        <div class="campo">
+            <label for="preco_custo">Preço de Custo</label>
+            <input type="text" name="preco_custo" id="preco_custo" value="{{produto.preco_custo}}">
+        </div>
+        <button type="submit">Salvar Alterações</button>
+    </form>
+</div>
+{% endblock %}

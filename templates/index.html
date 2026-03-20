@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+
+{% block head %}
+    <title>Mercadinho de Coisinhas</title>
+{% endblock %}
+
+{% block body %}
+    <div class="index-btn">
+        <a href="" class="venda-btn">
+            <img src="{{ url_for('static', filename='images/cart.png') }}"" alt="Venda (Indisponível!)">
+        </a>
+        <figcaption>Venda (Indisponível!)</figcaption>
+    </div>
+    <div class="index-btn">
+        <a href="" class="movimento-btn">
+            <img src="{{ url_for('static', filename='images/dollar-symbol.png') }}"" alt="Movimento (Indisponível!)">
+        </a>
+        <figcaption>Movimento (Indisponível!)</figcaption>
+    </div>
+    <div class="index-btn">
+        <a href="{{ url_for('estoque')}}" class="estoque-btn">
+            <img src="{{ url_for('static', filename='images/adicionar-produto.png') }}"" alt="Controle de Estoque">
+        </a>
+        <figcaption>Controle de Estoque</figcaption>
+    </div>
+{% endblock %}
